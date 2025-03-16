@@ -1,4 +1,8 @@
-
+#model = rma.uni or mv model
+#mod is moderator (can by 1 if intercept only)
+#es is the name of effect size - for the plot
+#group is the grouping variable for the plot
+#terms in case you want to specify your own labels and not default output. 
 orchaRd_table <- function(model, mod, es, group, terms = NULL) {
   
   require(orchaRd)
@@ -79,8 +83,8 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
         opt_table_font(font = "Arial") |>
         tab_options(
           table.width = px(750),
-          table.border.bottom.width = px(0), # Remove line at the bottom of the table
-          source_notes.border.bottom.width = px(0) # Remove line under the source note
+          table.border.bottom.width = px(0),
+          source_notes.border.bottom.width = px(0)
           ) |>
         tab_source_note(
           source_note = paste(
@@ -105,6 +109,7 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
 dat <- escalc(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
 example_plot<-rma.mv(yi, vi, random = ~ 1 | trial, data=dat)
 
+#run test function
 orchaRd_table(
   model = example_plot, 
   mod = "1",
