@@ -9,7 +9,7 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
   require(tidyverse)
   require(broom)
   require(patchwork)
-  require(gt)
+
 
   # orchard plot
   model_summary <- orchaRd::mod_results(model, mod = mod, group = group)
