@@ -7,8 +7,7 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
   
   require(orchaRd)
   require(tidyverse)
-  require(broom)
-  require(patchwork)
+ 
 
 
   # orchard plot
