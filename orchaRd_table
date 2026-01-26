@@ -6,8 +6,6 @@
 orchaRd_table <- function(model, mod, es, group, terms = NULL) {
   
   # orchard plot
-  model_summary <- orchaRd::mod_results(model, mod = mod, group = group)
-  orchard <- orchaRd::orchard_plot(model_summary, xlab = es)
 
   # table for summary
   main_table <- broom::tidy(model, conf.int = TRUE)
