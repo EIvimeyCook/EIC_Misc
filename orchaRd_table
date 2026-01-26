@@ -5,9 +5,6 @@
 #terms in case you want to specify your own labels and not default output. 
 orchaRd_table <- function(model, mod, es, group, terms = NULL) {
   
-  require(orchaRd)
-
-
   # orchard plot
   model_summary <- orchaRd::mod_results(model, mod = mod, group = group)
   orchard <- orchaRd::orchard_plot(model_summary, xlab = es)
