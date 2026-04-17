@@ -3,10 +3,30 @@
 #es is the name of effect size - for the plot
 #group is the grouping variable for the plot
 #terms in case you want to specify your own labels and not default output. 
-orchaRd_table <- function(model, mod, es, group, terms = NULL) {
+#pb if pub bias = components you'd liek to hold constant,
+#it will automatically correct the estimates to when pub bias components are zero
+orchaRd_table <- function(model, mod, es, group, terms = NULL, pb = NULL) {
+  
+  require(orchaRd)
+  require(tidyverse)
+  require(broom)
+  require(patchwork)
+  require(gt)
+  
+  model_summary <- orchaRd::mod_results(model, mod = mod, group = group)
   
   # orchard plot
-
+  if(!is.null(pb)){
+  correct <-setNames(as.list(rep(0, length(pb))), pb)
+  model_summary <- orchaRd::mod_results(model, mod = mod, group = group,
+                                        at = correct)
+  }
+  
+  orchard <- orchaRd::orchard_plot(model_summary, xlab = es)
+  
+  print(model_summary)
+  
+  
   # table for summary
   main_table <- broom::tidy(model, conf.int = TRUE)
   
@@ -26,7 +46,7 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
     ) %>%
     dplyr::mutate(p = case_when(
       p < 0.001 ~ "<0.001",
-      p > 0.001 ~ p
+      p >= 0.001 ~ p
     )) %>%
     select(
       Predictor,
@@ -37,15 +57,15 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
       Stat,
       p
     )
-
+  
   layout <- "A#
              BB
              BB"
-
+  
   combined_plot <-
     wrap_table(
       main_table |>
-      gt() |>
+        gt() |>
         tab_style(
           style = list(cell_text(weight = "bold")),
           locations = list(cells_body(rows = p < 0.05))
@@ -77,7 +97,7 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
           table.width = px(750),
           table.border.bottom.width = px(0),
           source_notes.border.bottom.width = px(0)
-          ) |>
+        ) |>
         tab_source_note(
           source_note = paste(
             "Test for Residual Heterogeneity: QE(df = ",
@@ -92,19 +112,6 @@ orchaRd_table <- function(model, mod, es, group, terms = NULL) {
         )
     ) / orchard +
     plot_layout(heights = c(2, 6), design = layout)
-
+  
   return(combined_plot)
 }
-
-#example table + orchaRd from metafor
-
-dat <- escalc(measure="OR", ai=tpos, bi=tneg, ci=cpos, di=cneg, data=dat.bcg)
-example_plot<-rma.mv(yi, vi, random = ~ 1 | trial, data=dat)
-
-#run test function
-orchaRd_table(
-  model = example_plot, 
-  mod = "1",
-  es = "logRR",
-  group = "author",
-  )
