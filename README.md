@@ -3,7 +3,7 @@
 </div>
 
 <!-- badges: start -->
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 <!-- badges: end -->
 
 Miscellaneous functions that might be useful.
