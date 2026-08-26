@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: "Ivimey-Cook"
+    given-names: "Edward R."
+    orcid: "https://orcid.org/0000-0003-4910-0443"
+title: "EIC_Misc: Miscellaneous R functions"
+abstract: "A collection of standalone R helper functions, including orchaRd_table() for combining a metafor results table with an orchaRd orchard plot."
+version: 1.0.0
+url: "https://github.com/EIvimeyCook/EIC_Misc"
+repository-code: "https://github.com/EIvimeyCook/EIC_Misc"
+license: MIT
+keywords:
+  - "meta-analysis"
+  - "visualisation"
+  - "utilities"
+  - "R"
