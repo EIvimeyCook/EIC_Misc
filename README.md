@@ -87,6 +87,14 @@ please open an issue at <https://github.com/EIvimeyCook/EIC_Misc/issues>.
 Edward R. Ivimey-Cook — <e.ivimeycook@gmail.com> —
 [ORCID 0000-0003-4910-0443](https://orcid.org/0000-0003-4910-0443)
 
+## Citation
+
+> Ivimey-Cook, E. R. (2026). *EIC_Misc: Miscellaneous R functions*.
+> <https://github.com/EIvimeyCook/EIC_Misc>
+
+A machine-readable [`CITATION.cff`](CITATION.cff) is included, so GitHub's
+"Cite this repository" button gives formatted APA and BibTeX.
+
 ## License
 
 Released under the [MIT License](LICENSE.md).
