@@ -16,8 +16,7 @@ self-contained and can be sourced directly:
 source("https://raw.githubusercontent.com/EIvimeyCook/EIC_Misc/main/orchaRd_table.R")
 ```
 
-These are working utilities rather than maintained software — no tests, no
-versioning, and no guarantee they survive the next update to their dependencies.
+These are working utilities rather than maintained software.
 
 ## Contents
 
