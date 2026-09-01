@@ -81,11 +81,6 @@ devtools::install_github("daniel1noble/orchaRd", ref = "main")
 These are personal utilities, but if something here is broken or you have a fix,
 please open an issue at <https://github.com/EIvimeyCook/EIC_Misc/issues>.
 
-## Contact
-
-Edward R. Ivimey-Cook — <e.ivimeycook@gmail.com> —
-[ORCID 0000-0003-4910-0443](https://orcid.org/0000-0003-4910-0443)
-
 ## Citation
 
 > Ivimey-Cook, E. R. (2026). *EIC_Misc: Miscellaneous R functions*.
@@ -93,6 +88,11 @@ Edward R. Ivimey-Cook — <e.ivimeycook@gmail.com> —
 
 A machine-readable [`CITATION.cff`](CITATION.cff) is included, so GitHub's
 "Cite this repository" button gives formatted APA and BibTeX.
+
+## Contact
+
+Edward R. Ivimey-Cook — <e.ivimeycook@gmail.com> —
+[ORCID 0000-0003-4910-0443](https://orcid.org/0000-0003-4910-0443)
 
 ## License
 
